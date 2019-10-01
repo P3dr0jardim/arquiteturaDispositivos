@@ -75,12 +75,12 @@ public class ArrayUtilities {
     }
    public static int[] remove(int n,int[] a){
         if(contains(n,a)){
-            int l=0;
+            int count=0;
             int[] res=new int[a.length-1];
             for(int i=0;i<a.length;i++){
                 if(a[i]!=n){
-                    res[l]=a[i];
-                    l++;
+                    res[count]=a[i];
+                    count++;
                 }
             }
             return res;
