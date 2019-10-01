@@ -35,8 +35,11 @@ public class ArrayUtilities {
         }
         return min;
     }
-    public static int[] copyOf(int[] a){
-        int[] array=a;
+   public static int[] copyOf(int[] a){
+        int[] array=new int[a.length];
+        for(int i =0;i<a.length;i++){
+            array[i]=a[i];
+        }
         return array;
     }
     public static boolean contains(int n,int[] a){
@@ -46,9 +49,13 @@ public class ArrayUtilities {
         }
         return false;
     }
-    public static int containsDuplicates(int a){
-        
-        return 0;
+    public static boolean containsDuplicates( int[] a){
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a.length;j++)
+            if(a[i]==a[j]);
+                return true;
+        }
+        return false;
     }
     public static int indexOf(int a){
         int[] array={1,4,67,2,78,2,7,3,5};
@@ -66,7 +73,18 @@ public class ArrayUtilities {
         array[i]=n;
         return array;
     }
-    public static int remove(int a){
-        return 0;
+   public static int[] remove(int n,int[] a){
+        if(contains(n,a)){
+            int l=0;
+            int[] res=new int[a.length-1];
+            for(int i=0;i<a.length;i++){
+                if(a[i]!=n){
+                    res[l]=a[i];
+                    l++;
+                }
+            }
+            return res;
+        }
+        return a;
     }
 }
