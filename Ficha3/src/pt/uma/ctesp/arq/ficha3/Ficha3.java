@@ -19,7 +19,16 @@ public class Ficha3 {
         System.out.println("-----------------------------CharacterUtilities---------------------------");
         System.out.println("lowerLetterSuccesorOf->"+CharacterUtilities.lowerLetterSuccesorOf('z'));
         System.out.println("lowerLetterPredecessorOf->"+CharacterUtilities.lowerLetterPredecessorOf('b'));
-        System.out.println("lowerLetterSuccesorStepsOf->"+CharacterUtilities.lowerLetterSuccesorStepsOf(2,'z'));
+        System.out.println("lowerLetterSuccesorStepsOf->"+CharacterUtilities.lowerLetterSuccessorStepsOf('z', 2));
+        System.out.println("lowerLetterPredecessorStepsOf->"+CharacterUtilities.lowerLetterPredecessorStepsOf('b', 2));
+        char[] letras={'n','c','b','p','m'};
+        char[] letras2={'a','b','c','e','g','k'};
+        String msg="Ola";
+        System.out.println("occurencesOfCharacteIn->"+CharacterUtilities.occurencesOfCharacterIn(letras,'d'));
+        System.out.println("replaceCharacterIn->"+Arrays.toString(CharacterUtilities.replaceCharacterIn(letras,'d','a')));
+        System.out.println("concatenationOf->"+Arrays.toString(CharacterUtilities.concatenationOf(letras,letras2)));
+        System.out.println("copyOfPartOf->"+Arrays.toString(CharacterUtilities.copyOfPartOf(letras, 0,4)));
+        System.out.println("Cipher->"+Arrays.toString(CaesarCipherDecipher.cipher(letras,2)));
     }
     
 }
