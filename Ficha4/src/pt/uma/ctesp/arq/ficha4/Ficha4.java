@@ -6,6 +6,7 @@
 package pt.uma.ctesp.arq.ficha4;
 
 import static pt.uma.ctesp.arq.ficha4.MatrixUtilities.*;
+import static pt.uma.ctesp.arq.ficha4.CharacterDrawingUtilities.*;
 
 /**
  *
@@ -41,8 +42,11 @@ public class Ficha4 {
          System.out.println(areCompatibleForSum(matrix, matrix2));
          sumOf(matrix4,matrix2);
          MatrixUtilities.show(matrix);
+         
+         drawElement('*');
     }
 
+     
    
     
 }
