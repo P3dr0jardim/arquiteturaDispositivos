@@ -1,4 +1,6 @@
-package pt.uma.ctesp.arq.ficha5;
+package pt.uma.ctesp.arq.ficha6;
+
+import pt.uma.ctesp.arq.ficha5.Point;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,7 +12,7 @@ package pt.uma.ctesp.arq.ficha5;
  *
  * @author Turma A
  */
-public class Triangle {
+public abstract class Triangle extends Shape{
     private Point a;
     private Point b;
     private Point c;
@@ -22,7 +24,8 @@ public class Triangle {
     }
      public Triangle(Point a, Point b, Point c) {
         this.a = a;
-        this.b = b;
+        this.b = b
+                ;
         this.c = c;
     }
 
@@ -59,10 +62,21 @@ public class Triangle {
        return b.distanceTo(a);
         
     }
-     public double area(){
-         double res=0.0;
-         res=base()*altura()/2;
-         return res;
+    public double hipotenusa(){
+       double hipo=0.0;
+       Math.pow(hipo,2)=Math.pow(base(),2)+Math.pow(altura(),2);
+       return hipo;
+        
+    }
+  
+     @Override
+    public double getArea(){
+        return base()*altura()/2;
+    }
+
+    @Override
+    public  double getPerimeter(){
+      return base()+altura()+hipotenusa() ;
     }
     
     
