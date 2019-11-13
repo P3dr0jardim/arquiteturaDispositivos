@@ -23,7 +23,9 @@ public class Army{
         defenseForce = new ArrayList<FightForce>();
     }
     
-    Army(int catapulta, int cavalaria, int infantaria, int side) {
+    public Army(int catapulta, int cavalaria, int infantaria, int side) {
+        attackForce = new ArrayList<FightForce>();
+        defenseForce = new ArrayList<FightForce>();
         Random random= new Random();
     for(int i=0;i<catapulta;i++){
     if(random.nextDouble()*100<side){
@@ -51,6 +53,32 @@ public class Army{
     }
     }
 
+    public ArrayList<FightForce> getAttackForce() {
+        
+        return attackForce;
+    }
+
+    public ArrayList<FightForce> getDefenseForce() {
+        return defenseForce;
+    }
+
+    public void setAttackForce(ArrayList<FightForce> attackForce) {
+        this.attackForce = attackForce;
+    }
+
+    public void setDefenseForce(ArrayList<FightForce> defenseForce) {
+        this.defenseForce = defenseForce;
+    }
+
+    public Army(ArrayList<FightForce> attackForce, ArrayList<FightForce> defenseForce) {
+        this.attackForce = attackForce;
+        this.defenseForce = defenseForce;
+    }
+   
+ @Override
+    public String toString() {
+        return "Tropas de Ataque->"+getAttackForce()+"\nTropas de defesa->"+getDefenseForce();
+    }
    
     
     

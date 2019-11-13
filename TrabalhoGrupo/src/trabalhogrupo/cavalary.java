@@ -13,4 +13,8 @@ public class cavalary extends FightForce {
      public cavalary() {
         super(50,50, 0.1);
     }
+     @Override
+    public String toString() {
+        return "Cavalaria:ataque->"+super.getAtaque()+"\tDefesa->"+super.getDefesa();
+    }
 }

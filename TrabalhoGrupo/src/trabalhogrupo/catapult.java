@@ -14,6 +14,11 @@ public class catapult extends FightForce{
     public catapult() {
         super(100,1, 0.1);
     }
+
+    @Override
+    public String toString() {
+        return "Catapulta:ataque->"+super.getAtaque()+"\tDefesa->"+super.getDefesa();
+    }
   
 
    

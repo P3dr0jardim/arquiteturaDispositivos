@@ -13,5 +13,9 @@ public class infantary extends FightForce  {
       public infantary() {
         super(25,75, 0.1);
     }
+      @Override
+    public String toString() {
+        return "Infantaria:ataque->"+super.getAtaque()+"\tDefesa->"+super.getDefesa();
+    }
     
 }
