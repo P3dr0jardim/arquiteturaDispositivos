@@ -11,6 +11,7 @@ import java.util.Scanner;
  *
  * @author Turma A
  */
+//parte1
 public class Game {
 
     Army player;
@@ -144,15 +145,23 @@ public class Game {
             case create:
                 System.out.println("Criar Exércitos");
                 game.Create();
+                System.out.println("Press any key to continue");
+                scanner.nextLine();
+                
                 break;
                
             case inspect:
                 System.out.println("Inspecionar exercito");
                 game.inspectArmy();
+                System.out.println("Press any key to continue");
+                scanner.nextLine();
                 break;
             case play:
                 System.out.println("Jogar");
                 game.play();
+                System.out.println("Press any key to continue");
+                scanner.nextLine();
+                
                 break;
             case quit:
                 System.out.println("Quit");
