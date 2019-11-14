@@ -14,12 +14,12 @@ public abstract class FightForce {
     public int defesa;
     public double sorte;
 
-    public FightForce(int ataque, int defesa, double sorte) {
+    public FightForce(int ataque, int defesa) {
         this.ataque = ataque;
         this.defesa = defesa;
-        this.sorte = sorte;
+        this.sorte = sorte();
     }
-       public double sorte(){
+       public static double sorte(){
         double res=0.0;
         res=Math.random();
         return res;

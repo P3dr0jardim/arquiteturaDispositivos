@@ -11,7 +11,7 @@ package trabalhogrupo;
  */
 public class cavalary extends FightForce {
      public cavalary() {
-        super(50,50, 0.1);
+        super(50,50);
     }
      @Override
     public String toString() {

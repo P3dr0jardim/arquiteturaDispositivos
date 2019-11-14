@@ -15,6 +15,8 @@ public class Game {
 
     Army player;
     Army enemy;
+    private int powerAtack=0;
+    private int powerDefense=0;
  
     public enum Commands {
         create, inspect, play, quit;
@@ -46,6 +48,11 @@ public class Game {
          
          System.out.println("As tropas introduzidas foram:"+catapultas+" catapultas ,"+cavalaria+" cavalaria, "+infantaria+" infantaria");
          System.out.println("Num total de "+tropas+" tropas");
+         if(tropas>100){
+             System.out.println("Ultrapassou as 100 unidades!");
+             System.out.println("Volte a introduzir tropas!");
+             Create();
+         }
          
         player = new Army(catapultas, cavalaria, infantaria, side);
  
@@ -57,15 +64,13 @@ public class Game {
          int quantCataAtk=0;
          int quantInfatAtk=0;
          int quantCavaAtk=0;
-         int powerAtack=0;
-         int powerDefense=0;
-
+         
           
           for(int i=0;i<player.getAttackForce().size();i++){
-              if(player.getAttackForce().get(i).ataque==100){
+              if(player.getAttackForce().get(i).getAtaque()==100){
                   quantCataAtk++;
                   powerAtack+=100;
-              }else if(player.getAttackForce().get(i).ataque==50){
+              }else if(player.getAttackForce().get(i).getAtaque()==50){
                   quantCavaAtk++;
                   powerAtack+=50;
               }else{
@@ -79,10 +84,10 @@ public class Game {
           System.out.println("Infantaria ofensiva->"+quantInfatAtk);
      
      for(int i=0;i<player.getDefenseForce().size();i++){
-              if(player.getDefenseForce().get(i).defesa==1){
+              if(player.getDefenseForce().get(i).getDefesa()==1){
                   quantCataDef++;
                   powerDefense+=1;
-              }else if(player.getDefenseForce().get(i).defesa==50){
+              }else if(player.getDefenseForce().get(i).getDefesa()==50){
                   quantCavaDef++;
                   powerDefense+=50;
               }else{
@@ -94,7 +99,23 @@ public class Game {
           System.out.println("Catapultas defensivas-> "+quantCataDef);
           System.out.println("Cavalaria defensivas->"+quantCavaDef);
           System.out.println("Infantaria defensiva->"+quantInfatDef);
+          System.out.println("Sorte dsdsa: "+FightForce.sorte());
+          
      }
+     public void play(){
+         System.out.println("O JOGO COMEÇOU!");
+         System.out.println("Exercito humano:");
+         System.out.println("Poder atacante-> "+powerAtack);
+         System.out.println("Poder defensivo-> "+powerDefense);
+         
+         /*while(player.getDefenseForce().size()!=0 || enemy.getDefenseForce().size()!=0){
+        if(turn==0){
+            player.atack(enemy);
+        }else{
+            enemy.atack(player);
+        }*/
+    }
+     
 
 
     public static void main(String[] args) 
@@ -105,7 +126,7 @@ public class Game {
         
         boolean run=true;
         
-        while(run=true){
+        while(run){
         System.out.println("Bem vindo ao jogo!!");
         System.out.println("----- Menu -----");
         System.out.println("1- Criar Exécito(create)");
@@ -131,10 +152,11 @@ public class Game {
                 break;
             case play:
                 System.out.println("Jogar");
-                //game.play();
+                game.play();
                 break;
             case quit:
                 System.out.println("Quit");
+                run=false;
                 break;
 
         }

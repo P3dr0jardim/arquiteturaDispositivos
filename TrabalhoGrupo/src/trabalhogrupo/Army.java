@@ -28,7 +28,7 @@ public class Army{
         defenseForce = new ArrayList<FightForce>();
         Random random= new Random();
     for(int i=0;i<catapulta;i++){
-    if(random.nextDouble()*100<side){
+    if(random.nextFloat()*100<side){
         attackForce.add(new catapult());
     }else{
         defenseForce.add(new catapult());
@@ -36,7 +36,7 @@ public class Army{
         }
     }
     for(int i=0;i<cavalaria;i++){
-    if(random.nextDouble()*100<side){
+    if(random.nextFloat()*100<side){
         attackForce.add(new cavalary());
     }else{
         defenseForce.add(new cavalary());
@@ -44,7 +44,7 @@ public class Army{
         }
     }
     for(int i=0;i<infantaria;i++){
-    if(random.nextDouble()*100<side){
+    if(random.nextFloat()*100<side){
         attackForce.add(new infantary());
     }else{
         defenseForce.add(new infantary());

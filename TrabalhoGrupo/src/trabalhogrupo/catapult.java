@@ -12,7 +12,7 @@ package trabalhogrupo;
 public class catapult extends FightForce{
 
     public catapult() {
-        super(100,1, 0.1);
+        super(100,1);
     }
 
     @Override
