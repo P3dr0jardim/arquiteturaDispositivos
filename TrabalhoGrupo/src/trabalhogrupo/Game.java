@@ -5,6 +5,7 @@
  */
 package trabalhogrupo;
 
+import static java.lang.Math.random;
 import java.util.Scanner;
 
 /**
@@ -56,6 +57,37 @@ public class Game {
          }
          
         player = new Army(catapultas, cavalaria, infantaria, side);
+        
+        public void createBot() {
+            
+         System.out.println("Exercito BOT");
+         System.out.println("Infantaria!");
+         infantaria=random.nextFloat()*100;
+         tropas=infantaria;
+         System.out.println("Introduza a quantidade de cavalaria desejada!");
+         cavalaria=tropa.nextInt();
+         tropas=infantaria+cavalaria;
+         System.out.println("Introduza a quantidade de catapultas desejada!");
+         catapultas=tropa.nextInt();
+         tropas=infantaria+cavalaria+catapultas;
+         System.out.println("Introduza a percentagem de tropas que quer para ataque!");
+         side=tropa.nextInt();
+         
+         System.out.println("As tropas introduzidas foram:"+catapultas+" catapultas ,"+cavalaria+" cavalaria, "+infantaria+" infantaria");
+         System.out.println("Num total de "+tropas+" tropas");
+         if(tropas>100){
+             System.out.println("Ultrapassou as 100 unidades!");
+             System.out.println("Volte a introduzir tropas!");
+             Create();
+         }
+            
+            
+            
+            
+            enemy = new Army(catapultas, cavalaria, infantaria, side);
+    }
+         
+         
  
     }
      public void inspectArmy(){
