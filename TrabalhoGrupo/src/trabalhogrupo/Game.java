@@ -42,7 +42,7 @@ public class Game {
          System.out.println("Introduza a quantidade de cavalaria desejada!");
          cavalaria=tropa.nextInt();
          tropas=infantaria+cavalaria;
-         System.out.println("Introduza a quantidade de catapultas desejada!");
+         System.out.println("Introduza a quantidade de catsapultas desejada!");
          catapultas=tropa.nextInt();
          tropas=infantaria+cavalaria+catapultas;
          System.out.println("Introduza a percentagem de tropas que quer para ataque!");
