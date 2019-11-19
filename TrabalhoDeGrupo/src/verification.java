@@ -8,7 +8,7 @@ public class verification {
         System.out.print(pergunta);
         while (!scann.hasNextInt()) {
             System.out.println("Introduza um numero válido!");
-            scann.next(); // this is important!
+            scann.next();
         }
         number = scann.nextInt();
         return number;

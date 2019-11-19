@@ -14,18 +14,16 @@
 public abstract class FightForce {
     public int ataque;
     public int defesa;
-    public double sorte;
+    public float sorte;
+
 
     public FightForce(int ataque, int defesa) {
         this.ataque = ataque;
         this.defesa = defesa;
-        this.sorte = sorte();
+
     }
-    public static double sorte(){
-        double res=0.0;
-        res=Math.random();
-        return res;
-    }
+
+
 
     public int getAtaque() {
         return ataque;
@@ -34,10 +32,10 @@ public abstract class FightForce {
     public int getDefesa() {
         return defesa;
     }
-
-    public double getSorte() {
+    public float getSorte() {
         return sorte;
     }
+
 
     public void setAtaque(int ataque) {
         this.ataque = ataque;
@@ -47,15 +45,9 @@ public abstract class FightForce {
         this.defesa = defesa;
     }
 
-    public void setSorte(double sorte) {
+    public void setSorte(float sorte) {
         this.sorte = sorte;
     }
-
-
-
-
-
-
 
 
 

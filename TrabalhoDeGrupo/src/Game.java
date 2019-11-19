@@ -24,7 +24,7 @@ public class Game {
     public enum Commands {
         create, inspect, play, quit;
     }
-
+// Criar exercito do jogador
     public void Create() {
 
         int side;
@@ -35,6 +35,7 @@ public class Game {
         tropas = 0;
 
         System.out.println("Tenha em atenção que o maximo de tropas é 100!");
+        //atraves da funçao IntVerify verificamos se o valor introduzido é um numero
         infantaria = verification.IntVerify("Introduza a quantidade de infantaria: ");
 
         tropas = infantaria;
@@ -58,16 +59,15 @@ public class Game {
 
 
     }
-
+//Função para criar o bot atraves de randoms
     public void CreateBot() {
         Random random = new Random();
-
 
         int infantariaBot = random.nextInt(100 + 1);
         int cavalariaBot = random.nextInt(100 + 1);
         int catapultasBot = random.nextInt(100 + 1);
         int sideBot = random.nextInt(100 + 1);
-        ;
+
         int tropasBot = catapultasBot + infantariaBot + cavalariaBot;
 
         if (tropasBot > 100) {
@@ -92,13 +92,13 @@ public class Game {
         for (int i = 0; i < player.getAttackForce().size(); i++) {
             if (player.getAttackForce().get(i).getAtaque() == 100) {
                 quantCataAtk++;
-                powerAtack += 100;
+
             } else if (player.getAttackForce().get(i).getAtaque() == 50) {
                 quantCavaAtk++;
-                powerAtack += 50;
+                ;
             } else {
                 quantInfatAtk++;
-                powerAtack += 25;
+
             }
 
         }
@@ -109,13 +109,13 @@ public class Game {
         for (int i = 0; i < player.getDefenseForce().size(); i++) {
             if (player.getDefenseForce().get(i).getDefesa() == 1) {
                 quantCataDef++;
-                powerDefense += 1;
+
             } else if (player.getDefenseForce().get(i).getDefesa() == 50) {
                 quantCavaDef++;
-                powerDefense += 50;
+
             } else {
                 quantInfatDef++;
-                powerDefense += 75;
+
             }
 
         }
@@ -171,17 +171,79 @@ public class Game {
 
     public void play() {
         System.out.println("O JOGO COMEÇOU!");
-        System.out.println("Exercito humano:");
-        System.out.println("Poder atacante-> " + powerAtack);
-        System.out.println("Poder defensivo-> " + powerDefense);
 
-         /*while(player.getDefenseForce().size()!=0 || enemy.getDefenseForce().size()!=0){
-        if(turn==0){
-            player.atack(enemy);
-        }else{
-            enemy.atack(player);
-        }*/
+        Scanner scanner = new Scanner(System.in);
+        int opcao = 1;
+        if (enemy.getDefenseForce().isEmpty()) {
+            CreateBot();
+        }
+        if (player == null) {
+            System.out.println("Sem Exercito Criado.");
+        } else {
+            if (player.getDefenseForce().isEmpty()) {
+                System.out.println("O seu exercito encontra sem defesa.");
+
+                opcao = verification.IntVerify("Pretende continuar?Sim(1),Nao(0)->");
+
+            }
+            if (opcao == 1) {
+                System.out.println("Poder do seu Exercito:");
+                System.out.println("Poder Maximo de ataque->" + player.forceAtackRound());
+                System.out.println("Poder Defensivo->" + player.forceDefenseRound());
+                System.out.println("Poder do Bot");
+                System.out.println("Poder Máximo de ataque->" + enemy.forceAtackRound());
+                System.out.println("Poder Defensivo->" + enemy.forceDefenseRound());
+                int Rounds = 0;
+                if ((Math.random() * 100) < 50) {
+                    do {
+                        Rounds++;
+                        System.out.println("----------------Round " + Rounds + "-----------------------");
+                        System.out.println("Defesa Atual->" + player.forceDefenseRound());
+                        System.out.println("Player Attack");
+
+
+                        player.Ataque(enemy);
+                        System.out.println("Dano dado->" + player.realAtack());
+                        if (enemy.forceDefenseRound() > 0) {
+                            System.out.println("Enemy Attack");
+                            enemy.Ataque(player);
+                            System.out.println("Dano recebido->" + enemy.realAtack());
+
+                        }
+                    } while (player.forceDefenseRound() > 0 && enemy.forceDefenseRound() > 0);
+                    if (enemy.forceDefenseRound() <= 0) {
+                        System.out.println("Voce ganhou!!");
+                    } else if (player.forceDefenseRound() <= 0) {
+                        System.out.println("O bot ganhou!!");
+                    }
+                } else {
+                    do {
+                        Rounds++;
+                        System.out.println("----------------Round " + Rounds + "-----------------------");
+                        System.out.println("Defesa Atual->" + player.forceDefenseRound());
+                        System.out.println("Enemy Attack");
+
+                        enemy.Ataque(player);
+                        System.out.println("Dano recebido->" + enemy.realAtack());
+                        if (player.forceDefenseRound() > 0) {
+                            System.out.println("Player Attack");
+
+                            player.Ataque(enemy);
+                            System.out.println("Dano dado->" + player.realAtack());
+                        }
+
+                    } while (player.forceDefenseRound() > 0 && enemy.forceDefenseRound() > 0);
+                    if (player.forceDefenseRound() <= 0) {
+                        System.out.println("O bot ganhou!!");
+                    } else if (enemy.forceDefenseRound() <= 0) {
+                        System.out.println("Voce ganhou!!");
+                    }
+                }
+            }
+        }
     }
+
+
 
 
     public static void main(String[] args) {

@@ -8,6 +8,7 @@
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -90,6 +91,39 @@ public class Army{
         }
         return defesa;
     }
+    public int realAtack() {
+        float power = 0;
+        for (int i = 0; i < getAttackForce().size(); i++) {
+            power += getAttackForce().get(i).getSorte() * getAttackForce().get(i).getAtaque();
+        }
+        return (int) power;
+    }
+
+    public void CalculateSorte() {
+        for (int i = 0; i < getAttackForce().size(); i++) {
+            getAttackForce().get(i).setSorte((float) Math.random());
+        }
+    }
+    public void removeDefense(int damage) {
+        for (int i = 0; i < getDefenseForce().size(); i++) {
+            if (getDefenseForce().get(i).getDefesa() < damage) {
+                damage -= getDefenseForce().get(i).getDefesa();
+                getDefenseForce().remove(i);
+                i--;
+            } else if (getDefenseForce().get(i).getDefesa() > damage && damage > 0) {
+                getDefenseForce().get(i).setDefesa((getDefenseForce().get(i).getDefesa() - damage));
+                damage = 0;
+                i--;
+            }
+        }
+    }
+    public void Ataque(Army b) {
+
+        CalculateSorte();
+        b.removeDefense(realAtack());
+    }
+
+
 
 
     @Override
