@@ -76,6 +76,22 @@ public class Army{
         this.defenseForce = defenseForce;
     }
 
+    public int forceAtackRound(){
+        int ataque=0;
+        for(int i=0;i<getAttackForce().size();i++){
+            ataque += getAttackForce().get(i).getAtaque() * Math.random();
+        }
+        return ataque;
+    }
+    public int forceDefenseRound(){
+        int defesa=0;
+        for(int i=0;i<getDefenseForce().size();i++){
+            defesa+=getDefenseForce().get(i).getDefesa();
+        }
+        return defesa;
+    }
+
+
     @Override
     public String toString() {
         return "Tropas de Ataque->"+getAttackForce()+"\nTropas de defesa->"+getDefenseForce();
